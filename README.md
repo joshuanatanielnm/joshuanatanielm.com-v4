@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Site
+
+A modern, minimal personal portfolio website showcasing frontend engineering skills, AI, and Web3 expertise.
+
+## Features
+
+- **Hero Section** - Animated typing effect with ChatGPT-inspired design
+- **Work Experience** - Timeline with Uniswap-inspired data visualization
+- **Portfolio** - Interactive project cards with filters and modals
+- **Explorations** - Experimental projects with interactive demos
+- **Photography** - Gallery with lightbox and category filters
+- **Skills** - Technology stack visualization
+- **Contact** - Social links and resume download
+- **Dark Mode** - Theme toggle with system preference detection
+- **Responsive Design** - Mobile-first approach
+- **Smooth Animations** - Framer Motion animations throughout
+
+## Tech Stack
+
+- **Next.js 16** - App Router with React Server Components
+- **React 19** - Latest React features
+- **TypeScript** - Type safety
+- **Tailwind CSS v4** - Utility-first styling
+- **Framer Motion** - Animations
+- **Radix UI** - Accessible components
+- **Lucide React** - Icons
+- **Yet Another React Lightbox** - Photography gallery
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Add your images to the `public/images/` directory:
+   - `portfolio/` - Portfolio project thumbnails and images
+   - `explorations/` - Exploration project images
+   - `photography/` - Photography collection
+   - `companies/` - Company logos for work experience
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Update data in `lib/data.ts`:
+   - Personal information
+   - Work experience
+   - Portfolio projects
+   - Explorations
+   - Photography collection
+   - Skills
+   - Contact information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+pnpm dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+├── layout.tsx          # Root layout with metadata
+├── page.tsx            # Home page with all sections
+└── globals.css         # Global styles and theme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+components/
+├── Hero.tsx            # Hero section
+├── Experience.tsx     # Work experience timeline
+├── Portfolio.tsx      # Portfolio showcase
+├── Explorations.tsx   # Experimental projects
+├── Photography.tsx    # Photo gallery
+├── Skills.tsx         # Skills visualization
+├── Contact.tsx        # Contact section
+├── Navbar.tsx         # Navigation bar
+├── ThemeToggle.tsx    # Dark mode toggle
+├── demos/             # Interactive demo components
+│   ├── WalletConnector.tsx
+│   └── AIChat.tsx
+└── ui/                # Reusable UI components
+    ├── Button.tsx
+    ├── Card.tsx
+    ├── Badge.tsx
+    ├── Dialog.tsx
+    └── ImageWithFallback.tsx
 
-## Deploy on Vercel
+lib/
+├── data.ts            # All portfolio data
+├── utils.ts           # Utility functions
+└── animations.ts      # Framer Motion variants
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+types/
+└── index.ts           # TypeScript type definitions
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Customization
+
+### Colors and Theme
+
+Edit `app/globals.css` to customize colors and theme variables.
+
+### Data
+
+All content is stored in `lib/data.ts`. Update the data objects to customize:
+- Personal information
+- Work experience entries
+- Portfolio projects
+- Explorations
+- Photography collection
+- Skills
+- Contact information
+
+### Images
+
+Place images in the `public/images/` directory following the structure:
+- Portfolio: `public/images/portfolio/`
+- Explorations: `public/images/explorations/`
+- Photography: `public/images/photography/`
+- Company logos: `public/images/companies/`
+
+## Building for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+**Note:** There's a known compatibility issue between Tailwind CSS v4 and Next.js 16.1.3 that may cause build errors. The development server works correctly. This issue should be resolved in future versions of Next.js or Tailwind CSS. For production builds, you may need to:
+- Use `next build --no-turbopack` flag, or
+- Wait for updated versions of the dependencies
+
+## Deployment
+
+The site can be deployed to Vercel, Netlify, or any platform that supports Next.js.
+
+## License
+
+MIT
